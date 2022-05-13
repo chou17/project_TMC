@@ -1,5 +1,6 @@
 import openpyxl
 
+#標準功效[i][0] = original effect
 標準功效 = [
     ["補脾肺腎", "補脾氣", "補肺氣", "補肺陰", "補腎陰", "補脾陰"],
     ["補脾和胃", "補脾氣", "降胃氣"],
@@ -257,7 +258,7 @@ import openpyxl
     ["安神", "安神"],
     ["安神增智", "補心氣", "安神"]
 ]
-
+#藥材功效[i][0] = medicine name
 藥材功效 = [
     ["麻黃", "透疹", "發散表寒", "通鼻竅", "利三焦濕", "利皮毛濕", "利肺濕", "消水腫", "平喘", "止癢", "宣肺氣"],
     ["桂枝", "補心陽", "發散表寒", "祛風寒", "溫經通陽", "補經絡陽", "解表發汗"],
@@ -321,7 +322,7 @@ import openpyxl
 data = openpyxl.load_workbook("原始藥效.xlsx")
 sheet = data.worksheets[0]
 
-
+#original effect to std effect (from system)
 def systemeffect(row):
     ori_effect = sheet.cell(row, 4).value
     std_col = 5
