@@ -4,50 +4,49 @@ import openpyxl
     # 發散表寒:0
     {"川烏": 0, "藁本": 0, "蔥": 0, "川芎": 0, "桂枝": 0, "麻黃": 0, "獨活": 0, "防風": 0, "紫蘇": 0,
         "香薷": 0, "蘇梗": 0, "蒼耳子": 0, "生薑": 0, "辛夷": 0, "建神麯": 0, "胡荽": 0, "浮萍": 0},
-    # 祛風寒:1
-    {"生薑": 0, "附子": 0, "蒼耳草": 0, "細辛": 0, "桂枝": 0, "川芎": 0}
+ 
 ]
-
+#open the excel file
 data = openpyxl.load_workbook("原始藥效.xlsx")
+#deal with the first sheet
 sheet = data.worksheets[0]
 
-for row in range(2, sheet.max_row, 1):
-    medicineName = sheet.cell(row, 2).value
-    effectIndex = int(sheet.cell(row, 4).value[0])
-    structure = sheet.cell(row, 1).value
+def checkarr(str):
+    if str == '發散表寒':
+        return 0
+    elif str == '祛風寒':
+        return 1
+    ...(可能要寫所有的or有其他方法？)
 
-    if structure == "君":
+#確認方劑內的大小關係    
+def check_prescription_order(rowStart,rowFinal):
+    effectVal = 100
+    for row in range(rowStart, rowFinal):
+        medicineName = sheet.cell(row, 3).value
+        effect = sheet.cell(row, 5).value
+        effectIndex = checkarr(effect)
         for key in 功效集合[effectIndex].keys():
             if medicineName == key:
-                if 功效集合[effectIndex][key] < 1001:
-                    功效集合[effectIndex][key] = 1001
-                else:
-                    功效集合[effectIndex][key] += 1
+                功效集合[effectIndex][key] = effectVal
+                effectVal -= 10
                 break
-    elif structure == "臣":
-        for key in 功效集合[effectIndex].keys():
-            if medicineName == key:
-                if 功效集合[effectIndex][key] < 101:
-                    功效集合[effectIndex][key] = 101
-                else:
-                    功效集合[effectIndex][key] += 1
-                break
-    elif structure == "佐":
-        for key in 功效集合[effectIndex].keys():
-            if medicineName == key:
-                if 功效集合[effectIndex][key] < 11:
-                    功效集合[effectIndex][key] = 11
-                else:
-                    功效集合[effectIndex][key] += 1
-                break
-    elif structure == "使":
-        for key in 功效集合[effectIndex].keys():
-            if medicineName == key:
-                if 功效集合[effectIndex][key] == 0:
-                    功效集合[effectIndex][key] = 1
-                else:
-                    功效集合[effectIndex][key] += 1
-                break
+    
+#第一個方劑在第二行(e.g.,from 麻黃湯)
+rowStart = 2
+for row in range(3, sheet.max_row, 1):
+    prescription = sheet.cell(row, 1).value
+    #如果到了下一個方劑(e.g.,桂枝湯)
+    if(prescription != null):
+        rowFinal = row-1
+        check_prescription_order(rowStart,rowFinal)
+        rowStart = row
+        
+        
+#開新的excel儲存結果
+#   A           | B                 |C
+# 1 發散表寒    |                    |祛風寒
+# 2 川烏        | 100(不知道 我亂打)  |~
+# 3 藁本        | 100                |~
+# 4 蔥          | 90                 |~
 
-
-# data.save('原始藥效.xlsx')
+# data.save('效力值.xlsx')
