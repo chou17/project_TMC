@@ -18,8 +18,7 @@ class Graph:
         # edge<u, v>
         self.graph[u].append(v)
 
-    # 拓樸排序
-    # self.graph['a']->a連向的人
+    #設定效力值
     def set_val(self, arr):
         # 有指向其他點的點
         key = list(self.graph.keys())
