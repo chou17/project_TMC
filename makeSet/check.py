@@ -251,198 +251,202 @@ def checkarr(str):
         return 124
     elif str == '清膽虛熱':
         return 125
-    elif str == '清肝疳熱':
+    elif str == '清肺虛熱':
         return 126
-    elif str == '清胃疳熱':
+    elif str == '清肝疳熱':
         return 127
-    elif str == '清大腸熱涼血':
+    elif str == '清胃疳熱':
         return 128
-    elif str == '清肝熱明目':
+    elif str == '清大腸熱涼血':
         return 129
-    elif str == '袪心寒':
+    elif str == '清肝熱明目':
         return 130
-    elif str == '袪肝寒':
+    elif str == '袪心寒':
         return 131
-    elif str == '袪脾寒':
+    elif str == '袪肝寒':
         return 132
-    elif str == '袪腎寒':
+    elif str == '袪脾寒':
         return 133
-    elif str == '袪胃寒':
+    elif str == '袪腎寒':
         return 134
-    elif str == '祛寒濕':
+    elif str == '袪胃寒':
         return 135
-    elif str == '祛風熱':
+    elif str == '祛寒濕':
         return 136
-    elif str == '袪咽喉痛':
+    elif str == '祛風熱':
         return 137
-    elif str == '袪頭痛':
+    elif str == '袪咽喉痛':
         return 138
-    elif str == '袪暑':
+    elif str == '袪頭痛':
         return 139
-    elif str == '祛瘀':
+    elif str == '袪暑':
         return 140
-    elif str == '袪風':
+    elif str == '祛瘀':
         return 141
-    elif str == '袪肺寒':
+    elif str == '袪風':
         return 142
-    elif str == '袪目痛':
+    elif str == '袪肺寒':
         return 143
-    elif str == '去腐生肌':
+    elif str == '袪目痛':
         return 144
-    elif str == '行肝氣':
+    elif str == '去腐生肌':
         return 145
-    elif str == '行肺氣':
+    elif str == '行肝氣':
         return 146
-    elif str == '行心包氣':
+    elif str == '行肺氣':
         return 147
-    elif str == '行大腸氣':
+    elif str == '行心包氣':
         return 148
-    elif str == '行胃氣':
+    elif str == '行大腸氣':
         return 149
-    elif str == '行心氣':
+    elif str == '行胃氣':
         return 150
-    elif str == '消浮腫':
+    elif str == '行心氣':
         return 151
-    elif str == '瀉肝火':
+    elif str == '消浮腫':
         return 152
-    elif str == '瀉脾火':
+    elif str == '瀉肝火':
         return 153
-    elif str == '瀉腎火':
+    elif str == '瀉脾火':
         return 154
-    elif str == '瀉三焦火':
+    elif str == '瀉腎火':
         return 155
-    elif str == '瀉膀胱火':
+    elif str == '瀉三焦火':
         return 156
-    elif str == '瀉大腸火':
+    elif str == '瀉膀胱火':
         return 157
-    elif str == '瀉胃的積滯':
+    elif str == '瀉大腸火':
         return 158
-    elif str == '瀉脾的積滯':
+    elif str == '瀉胃的積滯':
         return 159
-    elif str == '瀉大腸的積滯':
+    elif str == '瀉脾的積滯':
         return 160
-    elif str == '瀉膽火':
+    elif str == '瀉大腸的積滯':
         return 161
-    elif str == '消食積':
+    elif str == '瀉膽火':
         return 162
-    elif str == '消水腫':
+    elif str == '消食積':
         return 163
-    elif str == '消散癰腫':
+    elif str == '消水腫':
         return 164
-    elif str == '消食積和胃':
+    elif str == '消散癰腫':
         return 165
-    elif str == '消心下痞':
+    elif str == '消食積和胃':
         return 166
-    elif str == '消癥':
+    elif str == '消心下痞':
         return 167
-    elif str == '消斑':
+    elif str == '消癥':
         return 168
-    elif str == '消痞散結':
+    elif str == '消斑':
         return 169
-    elif str == '行脾氣':
+    elif str == '消痞散結':
         return 170
-    elif str == '宣肺氣':
+    elif str == '行脾氣':
         return 171
-    elif str == '宣肺熱':
+    elif str == '宣肺氣':
         return 172
-    elif str == '洩肺氣':
+    elif str == '宣肺熱':
         return 173
-    elif str == '息肝風':
+    elif str == '洩肺氣':
         return 174
-    elif str == '止咳':
+    elif str == '息肝風':
         return 175
-    elif str == '止瀉':
+    elif str == '止咳':
         return 176
-    elif str == '止嘔':
+    elif str == '止瀉':
         return 177
-    elif str == '止痛':
+    elif str == '止嘔':
         return 178
-    elif str == '止血':
+    elif str == '止痛':
         return 179
-    elif str == '止汗':
+    elif str == '止血':
         return 180
-    elif str == '止腹痛':
+    elif str == '止汗':
         return 181
-    elif str == '止經血':
+    elif str == '止腹痛':
         return 182
-    elif str == '止癢':
+    elif str == '止經血':
         return 183
-    elif str == '止痙':
+    elif str == '止癢':
         return 184
-    elif str == '止帶':
+    elif str == '止痙':
         return 185
-    elif str == '止經痛':
+    elif str == '止帶':
         return 186
-    elif str == '止疳痢':
+    elif str == '止經痛':
         return 187
-    elif str == '逐水':
+    elif str == '止疳痢':
         return 188
-    elif str == '除煩':
+    elif str == '逐水':
         return 189
-    elif str == '除骨蒸':
+    elif str == '除煩':
         return 190
-    elif str == '升肝陽':
+    elif str == '除骨蒸':
         return 191
-    elif str == '升脾陽':
+    elif str == '升肝陽':
         return 192
-    elif str == '升腎陽':
+    elif str == '升脾陽':
         return 193
-    elif str == '升胃陽':
+    elif str == '升腎陽':
         return 194
-    elif str == '生肌止痛':
+    elif str == '升胃陽':
         return 195
-    elif str == '收斂生肌':
+    elif str == '生肌止痛':
         return 196
-    elif str == '收斂固澀':
+    elif str == '收斂生肌':
         return 197
-    elif str == '殺蟲':
+    elif str == '收斂固澀':
         return 198
-    elif str == '潤大腸燥':
+    elif str == '殺蟲':
         return 199
-    elif str == '潤腸燥':
+    elif str == '潤大腸燥':
         return 200
-    elif str == '軟堅散結':
+    elif str == '潤腸燥':
         return 201
-    elif str == '燥脾濕':
+    elif str == '軟堅散結':
         return 202
-    elif str == '燥肝濕':
+    elif str == '燥脾濕':
         return 203
-    elif str == '燥肺濕':
+    elif str == '燥肝濕':
         return 204
-    elif str == '燥腎濕':
+    elif str == '燥肺濕':
         return 205
-    elif str == '燥膽濕':
+    elif str == '燥腎濕':
         return 206
-    elif str == '燥膀胱濕':
+    elif str == '燥膽濕':
         return 207
-    elif str == '燥三焦濕':
+    elif str == '燥膀胱濕':
         return 208
-    elif str == '散心下結':
+    elif str == '燥三焦濕':
         return 209
-    elif str == '散瘀':
+    elif str == '散心下結':
         return 210
-    elif str == '散脾瘀':
+    elif str == '散瘀':
         return 211
-    elif str == '散胃瘀':
+    elif str == '散脾瘀':
         return 212
-    elif str == '散大腸瘀':
+    elif str == '散胃瘀':
         return 213
-    elif str == '縮尿':
+    elif str == '散大腸瘀':
         return 214
-    elif str == '益精':
+    elif str == '縮尿':
         return 215
-    elif str == '益精血':
+    elif str == '益精':
         return 216
-    elif str == '抑肝陽':
+    elif str == '益精血':
         return 217
-    elif str == '溫經通陽':
+    elif str == '抑肝陽':
         return 218
-    elif str == '溫經通脈':
+    elif str == '溫經通陽':
         return 219
-    elif str == '烏鬚':
+    elif str == '溫經通脈':
         return 220
-    elif str == '安胎':
+    elif str == '烏鬚':
         return 221
+    elif str == '安胎':
+        return 222
+    elif str == '生津':
+        return 223
     else:
         return -1
 
@@ -701,194 +705,198 @@ def checkeffect(int):
     elif int == 125:
         return '清膽虛熱'
     elif int == 126:
-        return '清肝疳熱'
+        return '清肺虛熱'
     elif int == 127:
-        return '清胃疳熱'
+        return '清肝疳熱'
     elif int == 128:
-        return '清大腸熱涼血'
+        return '清胃疳熱'
     elif int == 129:
-        return '清肝熱明目'
+        return '清大腸熱涼血'
     elif int == 130:
-        return '袪心寒'
+        return '清肝熱明目'
     elif int == 131:
-        return '袪肝寒'
+        return '袪心寒'
     elif int == 132:
-        return '袪脾寒'
+        return '袪肝寒'
     elif int == 133:
-        return '袪腎寒'
+        return '袪脾寒'
     elif int == 134:
-        return '袪胃寒'
+        return '袪腎寒'
     elif int == 135:
-        return '祛寒濕'
+        return '袪胃寒'
     elif int == 136:
-        return '祛風熱'
+        return '祛寒濕'
     elif int == 137:
-        return '袪咽喉痛'
+        return '祛風熱'
     elif int == 138:
-        return '袪頭痛'
+        return '袪咽喉痛'
     elif int == 139:
-        return '袪暑'
+        return '袪頭痛'
     elif int == 140:
-        return '祛瘀'
+        return '袪暑'
     elif int == 141:
-        return '袪風'
+        return '祛瘀'
     elif int == 142:
-        return '袪肺寒'
+        return '袪風'
     elif int == 143:
-        return '袪目痛'
+        return '袪肺寒'
     elif int == 144:
-        return '去腐生肌'
+        return '袪目痛'
     elif int == 145:
-        return '行肝氣'
+        return '去腐生肌'
     elif int == 146:
-        return '行肺氣'
+        return '行肝氣'
     elif int == 147:
-        return '行心包氣'
+        return '行肺氣'
     elif int == 148:
-        return '行大腸氣'
+        return '行心包氣'
     elif int == 149:
-        return '行胃氣'
+        return '行大腸氣'
     elif int == 150:
-        return '行心氣'
+        return '行胃氣'
     elif int == 151:
-        return '消浮腫'
+        return '行心氣'
     elif int == 152:
-        return '瀉肝火'
+        return '消浮腫'
     elif int == 153:
-        return '瀉脾火'
+        return '瀉肝火'
     elif int == 154:
-        return '瀉腎火'
+        return '瀉脾火'
     elif int == 155:
-        return '瀉三焦火'
+        return '瀉腎火'
     elif int == 156:
-        return '瀉膀胱火'
+        return '瀉三焦火'
     elif int == 157:
-        return '瀉大腸火'
+        return '瀉膀胱火'
     elif int == 158:
-        return '瀉胃的積滯'
+        return '瀉大腸火'
     elif int == 159:
-        return '瀉脾的積滯'
+        return '瀉胃的積滯'
     elif int == 160:
-        return '瀉大腸的積滯'
+        return '瀉脾的積滯'
     elif int == 161:
-        return '瀉膽火'
+        return '瀉大腸的積滯'
     elif int == 162:
-        return '消食積'
+        return '瀉膽火'
     elif int == 163:
-        return '消水腫'
+        return '消食積'
     elif int == 164:
-        return '消散癰腫'
+        return '消水腫'
     elif int == 165:
-        return '消食積和胃'
+        return '消散癰腫'
     elif int == 166:
-        return '消心下痞'
+        return '消食積和胃'
     elif int == 167:
-        return '消癥'
+        return '消心下痞'
     elif int == 168:
-        return '消斑'
+        return '消癥'
     elif int == 169:
-        return '消痞散結'
+        return '消斑'
     elif int == 170:
-        return '行脾氣'
+        return '消痞散結'
     elif int == 171:
-        return '宣肺氣'
+        return '行脾氣'
     elif int == 172:
-        return '宣肺熱'
+        return '宣肺氣'
     elif int == 173:
-        return '洩肺氣'
+        return '宣肺熱'
     elif int == 174:
-        return '息肝風'
+        return '洩肺氣'
     elif int == 175:
-        return '止咳'
+        return '息肝風'
     elif int == 176:
-        return '止瀉'
+        return '止咳'
     elif int == 177:
-        return '止嘔'
+        return '止瀉'
     elif int == 178:
-        return '止痛'
+        return '止嘔'
     elif int == 179:
-        return '止血'
+        return '止痛'
     elif int == 180:
-        return '止汗'
+        return '止血'
     elif int == 181:
-        return '止腹痛'
+        return '止汗'
     elif int == 182:
-        return '止經血'
+        return '止腹痛'
     elif int == 183:
-        return '止癢'
+        return '止經血'
     elif int == 184:
-        return '止痙'
+        return '止癢'
     elif int == 185:
-        return '止帶'
+        return '止痙'
     elif int == 186:
-        return '止經痛'
+        return '止帶'
     elif int == 187:
-        return '止疳痢'
+        return '止經痛'
     elif int == 188:
-        return '逐水'
+        return '止疳痢'
     elif int == 189:
-        return '除煩'
+        return '逐水'
     elif int == 190:
-        return '除骨蒸'
+        return '除煩'
     elif int == 191:
-        return '升肝陽'
+        return '除骨蒸'
     elif int == 192:
-        return '升脾陽'
+        return '升肝陽'
     elif int == 193:
-        return '升腎陽'
+        return '升脾陽'
     elif int == 194:
-        return '升胃陽'
+        return '升腎陽'
     elif int == 195:
-        return '生肌止痛'
+        return '升胃陽'
     elif int == 196:
-        return '收斂生肌'
+        return '生肌止痛'
     elif int == 197:
-        return '收斂固澀'
+        return '收斂生肌'
     elif int == 198:
-        return '殺蟲'
+        return '收斂固澀'
     elif int == 199:
-        return '潤大腸燥'
+        return '殺蟲'
     elif int == 200:
-        return '潤腸燥'
+        return '潤大腸燥'
     elif int == 201:
-        return '軟堅散結'
+        return '潤腸燥'
     elif int == 202:
-        return '燥脾濕'
+        return '軟堅散結'
     elif int == 203:
-        return '燥肝濕'
+        return '燥脾濕'
     elif int == 204:
-        return '燥肺濕'
+        return '燥肝濕'
     elif int == 205:
-        return '燥腎濕'
+        return '燥肺濕'
     elif int == 206:
-        return '燥膽濕'
+        return '燥腎濕'
     elif int == 207:
-        return '燥膀胱濕'
+        return '燥膽濕'
     elif int == 208:
-        return '燥三焦濕'
+        return '燥膀胱濕'
     elif int == 209:
-        return '散心下結'
+        return '燥三焦濕'
     elif int == 210:
-        return '散瘀'
+        return '散心下結'
     elif int == 211:
-        return '散脾瘀'
+        return '散瘀'
     elif int == 212:
-        return '散胃瘀'
+        return '散脾瘀'
     elif int == 213:
-        return '散大腸瘀'
+        return '散胃瘀'
     elif int == 214:
-        return '縮尿'
+        return '散大腸瘀'
     elif int == 215:
-        return '益精'
+        return '縮尿'
     elif int == 216:
-        return '益精血'
+        return '益精'
     elif int == 217:
-        return '抑肝陽'
+        return '益精血'
     elif int == 218:
-        return '溫經通陽'
+        return '抑肝陽'
     elif int == 219:
-        return '溫經通脈'
+        return '溫經通陽'
     elif int == 220:
-        return '烏鬚'
+        return '溫經通脈'
     elif int == 221:
+        return '烏鬚'
+    elif int == 222:
         return '安胎'
+    elif int == 223:
+        return '生津'
