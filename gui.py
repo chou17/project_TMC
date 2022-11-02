@@ -26,16 +26,16 @@ class Graph:
 	def add_edge(self, u, v):
         # edge<u, v>
 		self.graph[u].append(v)
-
+        #取得key
 	def g_get_key(self, v):
 		for k, val in self.graph.items():
 			if val == v:
 				return k
 
 	def set_val(self, arr):
-        # 有指向其他點的點
+        # key:有指向其他點的點
 		key = list(self.graph.keys())
-        
+        #效力值最大值=95
 		up_val = 95
 		val = 90
 
@@ -43,16 +43,20 @@ class Graph:
 		con = True
 		while(con):
 			con = False
+			#效力值遞減(-10)
 			val -= 10
 			for i in key:
-                # 如果有被上一層的人指向，表示為下一層
-				if arr[i] == up_val:
-					for j in self.graph[i]:
-						if arr[j] < val:
-							arr[j] = val
-							con = True
-			up_val -= 10
-		return val
+                # 若值=up_val，表有被指向，即為下一層
+			    if arr[i] == up_val:
+				    #所有下一層的元素
+				    for j in self.graph[i]:
+					    #若沒有被寫入值過
+                        #有被寫過則代表出現a>=b, b>=a之情況，保留較大的值以表a=b
+				        if arr[j] < val:
+				            arr[j] = val
+                            con = True
+            up_val -= 10
+        return val
 
 class GUI:
 	#global variable 
@@ -60,12 +64,16 @@ class GUI:
 		self.importFilePath = ""
 		self.img
 	
-	#根據方劑配伍結構得出的偏序集合畫出對應的有向圖
+	#根據方劑配伍結構畫出對應的有向圖
 	def check_prescription_order(rowstart, rowfinal, e, sheet, g):
 		appear = False
-		first_order = ""    
+		#此功效之最大配伍結構
+        first_order = ""    
+        #parent藥材名稱
 		premed = ""
+        #parent方劑配伍結構
 		preorder = ""
+        #分析單一方劑
 		for row in range(rowstart, rowfinal):
 			medicinename = sheet.cell(row, 3).value	#取得藥材名稱
 			effect = sheet.cell(row, 4).value	#取得療效名稱
@@ -75,7 +83,7 @@ class GUI:
 			if effectindex == e:
 				if appear == False:	#有此療效之藥材在此方劑中首次出現
 					appear = True
-					#記錄配伍結構
+					#記錄第一個配伍結構(head)
 					first_order = sheet.cell(row, 2).value
 					preorder = sheet.cell(row, 2).value
 					if preorder == None:
@@ -83,26 +91,27 @@ class GUI:
 						break
                 	# 方劑中首次出現(方劑中最大功效)
 					功效集合[e][medicinename] = 95
+                    #給完值後紀錄為parent
 					premed = medicinename
 				
 				else:	#在此方劑已出現過有此療效之藥材
 					order = sheet.cell(row, 2).value
-					if order == first_order:	#如果當前藥材跟在此方劑中第一次出現此療效之藥材配伍結構相同
+					if order == first_order:	#如果當前藥材與head配伍結構相同
 						功效集合[e][medicinename] = 95	#效力值設為最高
 
-					#如果當前藥材跟在此方劑中第一次出現此療效之藥材配伍結構不同(即在此方劑中療效效力較低)
+					#如果當前藥材跟head配伍結構不同(即為children)
 					else:	
-						#如果當前藥材跟在此方劑中前一次出現此療效之藥材配伍結構相同
+						#如果當前藥材跟parent配伍結構相同
 						if preorder == order:
-							name = g.g_get_key(premed)	#取得前一個的上一個藥材名稱
-							if name == None:	#如果沒有前一個的上一個藥材(表示前一個為君藥)
+							name = g.g_get_key(premed)	#取得grandparent藥材名稱
+							if name == None:	#如果grandparent不存在
 								continue	#繼續執行
 							
-							#如果 name != None 表示在此方劑中有配伍結構較前的藥材(即在此方劑中效力值較當前藥材及前一個藥材高的藥材)
-							premed = name	#將前一個的上一個藥材(效力值較高的藥材)設為premed 才可由效力較高者指向效力較低者(當前藥材)
-						#跟前一次出現此療效之藥材配伍結構不同(療效效力更低)
+							#如果grandparent存在
+							premed = name	#將grandparent設為premed，由grandparent指向當前藥材
+						#添加edge
 						g.add_edge(premed, medicinename)	#效力較高者指向效力較低者
-					#更新
+					    #更新
 						preorder = order	
 
 					premed = medicinename
@@ -164,15 +173,17 @@ class GUI:
 						GUI.check_prescription_order(rowStart, rowFinal, i, sheet, g)	#根據該方劑取得偏序關係
 						rowStart = row
 				GUI.check_prescription_order(rowStart, sheet.max_row, i, sheet, g)	#整理全部方劑所得的偏序關係(整理出整個有向圖)
-
+            #取得最小效力值
 			val = g.set_val(功效集合[i])
-			only_set = GUI.get_key(功效集合[i], 0)
-    		# num = -1代表圖上皆是獨立的點，或者圖中沒有任何點
-    		# 若圖上皆是獨立的點，only_set必為空(效力值皆為100)，only_set為空則代表圖中沒有任何點
+			#尚未被賦值的點
+            only_set = GUI.get_key(功效集合[i], 0)
+    		#賦最小效力值
 			for only in only_set:
 				功效集合[i][only] = val
+            #若該療效有效力值80卻沒有效力值95，表示資料中沒有此療效
 			if GUI.get_key(功效集合[i], 80) != [] and GUI.get_key(功效集合[i], 95) == []:
-				continue
+				#繼續執行
+                continue
 
 			#排序
 			sortedeffect = dict(sorted(功效集合[i].items(), key = operator.itemgetter(1), reverse = True))
