@@ -60,19 +60,22 @@ class GUI:
 		self.importFilePath = ""
 		self.img
 	
+	#根據方劑配伍結構得出的偏序集合畫出對應的有向圖
 	def check_prescription_order(rowstart, rowfinal, e, sheet, g):
 		appear = False
 		first_order = ""    
 		premed = ""
 		preorder = ""
 		for row in range(rowstart, rowfinal):
-			medicinename = sheet.cell(row, 3).value
-			effect = sheet.cell(row, 4).value
-			effectindex = checkarr(effect)
-        
+			medicinename = sheet.cell(row, 3).value	#取得藥材名稱
+			effect = sheet.cell(row, 4).value	#取得療效名稱
+			effectindex = checkarr(effect)	#將療效名稱轉換成相對應的index
+        	
+        	#如果藥材療效跟欲比對之療效相同
 			if effectindex == e:
-				if appear == False:
+				if appear == False:	#有此療效之藥材在此方劑中首次出現
 					appear = True
+					#記錄配伍結構
 					first_order = sheet.cell(row, 2).value
 					preorder = sheet.cell(row, 2).value
 					if preorder == None:
@@ -81,19 +84,26 @@ class GUI:
                 	# 方劑中首次出現(方劑中最大功效)
 					功效集合[e][medicinename] = 95
 					premed = medicinename
-				else:
+				
+				else:	#在此方劑已出現過有此療效之藥材
 					order = sheet.cell(row, 2).value
-					if order == first_order:
-						功效集合[e][medicinename] = 95
+					if order == first_order:	#如果當前藥材跟在此方劑中第一次出現此療效之藥材配伍結構相同
+						功效集合[e][medicinename] = 95	#效力值設為最高
 
-					else:
+					#如果當前藥材跟在此方劑中第一次出現此療效之藥材配伍結構不同(即在此方劑中療效效力較低)
+					else:	
+						#如果當前藥材跟在此方劑中前一次出現此療效之藥材配伍結構相同
 						if preorder == order:
-							name = g.g_get_key(premed)
-							if name == None:
-								continue
-							premed = name
-						g.add_edge(premed, medicinename)
-						preorder = order
+							name = g.g_get_key(premed)	#取得前一個的上一個藥材名稱
+							if name == None:	#如果沒有前一個的上一個藥材(表示前一個為君藥)
+								continue	#繼續執行
+							
+							#如果 name != None 表示在此方劑中有配伍結構較前的藥材(即在此方劑中效力值較當前藥材及前一個藥材高的藥材)
+							premed = name	#將前一個的上一個藥材(效力值較高的藥材)設為premed 才可由效力較高者指向效力較低者(當前藥材)
+						#跟前一次出現此療效之藥材配伍結構不同(療效效力更低)
+						g.add_edge(premed, medicinename)	#效力較高者指向效力較低者
+					#更新
+						preorder = order	
 
 					premed = medicinename
 
@@ -120,12 +130,15 @@ class GUI:
 		evar = StringVar()
 		displayEffect = ""
 
+		#取得使用者選擇的療效
 		for i in enames:	#可多選(目前為單選)
-			e = effectList.get(i)
+			e = effectList.get(i)	
 			elist.append(e)
+
+		#顯示具使用者選擇的療效之藥材及效力值
 		for evar in elist:	#可多選(目前為單選)
 			eindex = checkarr(evar)
-			List.delete(0, List.size() + 1)
+			List.delete(0, List.size() + 1)	#清空前一次顯示
 			List.insert(tk.END, "藥材：效力值\n")
 			for key in 功效集合[eindex].keys():
 				List.insert(tk.END, key + "：" + str(功效集合[eindex][key]) + "\n")
@@ -148,9 +161,9 @@ class GUI:
          			# 如果到了下一個方劑(e.g.,桂枝湯)
 					if prescription != None:
 						rowFinal = row
-						GUI.check_prescription_order(rowStart, rowFinal, i, sheet, g)
+						GUI.check_prescription_order(rowStart, rowFinal, i, sheet, g)	#根據該方劑取得偏序關係
 						rowStart = row
-				GUI.check_prescription_order(rowStart, sheet.max_row, i, sheet, g)
+				GUI.check_prescription_order(rowStart, sheet.max_row, i, sheet, g)	#整理全部方劑所得的偏序關係(整理出整個有向圖)
 
 			val = g.set_val(功效集合[i])
 			only_set = GUI.get_key(功效集合[i], 0)
