@@ -36,26 +36,21 @@ class Graph:
         # key:有指向其他點的點
 		key = list(self.graph.keys())
         #效力值最大值=95
-		up_val = 95
-		val = 90
+		val = 95
 
         # 是否繼續執行
 		con = True
 		while(con):
 			con = False
-			#效力值遞減(-10)
-			val -= 10
 			for i in key:
-                # 若值=up_val，表有被指向，即為下一層
-			    if arr[i] == up_val:
+                # 如果有被上一層的人指向，表示為下一層
+			    if arr[i] == val:
 				    #所有下一層的元素
 				    for j in self.graph[i]:
-					    #若沒有被寫入值過
-                        #有被寫過則代表出現a>=b, b>=a之情況，保留較大的值以表a=b
-				        if arr[j] < val:
-				            arr[j] = val
-                            con = True
-            up_val -= 10
+					if arr[j] < val-5:
+						arr[j] = val-5
+						con = True
+			val -= 5	#效力值遞減(-5)
         return val
 
 class GUI:
@@ -180,8 +175,8 @@ class GUI:
     		#賦最小效力值
 			for only in only_set:
 				功效集合[i][only] = val
-            #若該療效有效力值80卻沒有效力值95，表示資料中沒有此療效
-			if GUI.get_key(功效集合[i], 80) != [] and GUI.get_key(功效集合[i], 95) == []:
+            #若該療效有效力值90卻沒有效力值95，表示資料中沒有此療效
+			if GUI.get_key(功效集合[i], 90) != [] and GUI.get_key(功效集合[i], 95) == []:
 				#繼續執行
                 continue
 
