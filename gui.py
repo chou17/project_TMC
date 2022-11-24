@@ -149,6 +149,7 @@ class GUI:
 
 	#更新並計算藥效
 	def update_effect():
+		effectList.delete(0, effectList.size() + 1)	#清空前一次顯示
 		# open the excel file
 		data = openpyxl.load_workbook(GUI.importFilePath)
 		medValSheet = medData.active  # Workbook.create_sheet()
