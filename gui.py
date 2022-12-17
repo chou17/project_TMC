@@ -62,8 +62,8 @@ class GUI:
 	#根據方劑配伍結構畫出對應的有向圖
 	def check_prescription_order(rowstart, rowfinal, e, sheet, g):
 		appear = False
-		#此功效之最大配伍結構
-        first_order = ""    
+	#此功效之最大配伍結構
+        	first_order = ""    
         #parent藥材名稱
 		premed = ""
         #parent方劑配伍結構
